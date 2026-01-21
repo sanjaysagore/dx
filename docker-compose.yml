@@ -1,0 +1,17 @@
+services:
+  backend:
+    image: dx-backend
+    container_name: backend
+
+  frontend:
+    image: dx-frontend
+    container_name: frontend
+
+  nginx:
+    image: dx-nginx
+    container_name: nginx
+    ports:
+      - "8080:80"   # 👈 THIS IS MISSING
+    depends_on:
+      - backend
+      - frontend
